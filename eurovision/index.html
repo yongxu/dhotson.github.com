@@ -1,0 +1,99 @@
+    <html>
+    <body>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
+    <script src="lib/springy/springy.js"></script>
+    <script src="lib/springy/springyui.js"></script>
+    <script>
+var graph = new Graph();
+var Albania = graph.newNode({ label: 'Albania'});
+var Austria = graph.newNode({ label: 'Austria'});
+var Azerbaijan = graph.newNode({ label: 'Azerbaijan'});
+var Belarus = graph.newNode({ label: 'Belarus'});
+var Belgium = graph.newNode({ label: 'Belgium'});
+var BosniaHerzegovina = graph.newNode({ label: 'Bosnia & Herzegovina'});
+var Bulgaria = graph.newNode({ label: 'Bulgaria'});
+var Croatia = graph.newNode({ label: 'Croatia'});
+var Cyprus = graph.newNode({ label: 'Cyprus'});
+var Denmark = graph.newNode({ label: 'Denmark'});
+var Estonia = graph.newNode({ label: 'Estonia'});
+var FYRMacedonia = graph.newNode({ label: 'F.Y.R. Macedonia'});
+var Finland = graph.newNode({ label: 'Finland'});
+var France = graph.newNode({ label: 'France'});
+var Georgia = graph.newNode({ label: 'Georgia'});
+var Germany = graph.newNode({ label: 'Germany'});
+var Greece = graph.newNode({ label: 'Greece'});
+var Hungary = graph.newNode({ label: 'Hungary'});
+var Iceland = graph.newNode({ label: 'Iceland'});
+var Ireland = graph.newNode({ label: 'Ireland'});
+var Israel = graph.newNode({ label: 'Israel'});
+var Italy = graph.newNode({ label: 'Italy'});
+var Latvia = graph.newNode({ label: 'Latvia'});
+var Lithuania = graph.newNode({ label: 'Lithuania'});
+var Malta = graph.newNode({ label: 'Malta'});
+var Moldova = graph.newNode({ label: 'Moldova'});
+var Montenegro = graph.newNode({ label: 'Montenegro'});
+var Norway = graph.newNode({ label: 'Norway'});
+var Portugal = graph.newNode({ label: 'Portugal'});
+var Romania = graph.newNode({ label: 'Romania'});
+var Russia = graph.newNode({ label: 'Russia'});
+var SanMarino = graph.newNode({ label: 'San Marino'});
+var Serbia = graph.newNode({ label: 'Serbia'});
+var Slovakia = graph.newNode({ label: 'Slovakia'});
+var Slovenia = graph.newNode({ label: 'Slovenia'});
+var Spain = graph.newNode({ label: 'Spain'});
+var Sweden = graph.newNode({ label: 'Sweden'});
+var Switzerland = graph.newNode({ label: 'Switzerland'});
+var TheNetherlands = graph.newNode({ label: 'The Netherlands'});
+var Turkey = graph.newNode({ label: 'Turkey'});
+var Ukraine = graph.newNode({ label: 'Ukraine'});
+var UnitedKingdom = graph.newNode({ label: 'United Kingdom'});
+graph.newEdge(Austria, Sweden, {color: 'rgba(0,0,0,1.00)', weight: 0.50});
+graph.newEdge(Belgium, Sweden, {color: 'rgba(0,0,0,1.00)', weight: 0.50});
+graph.newEdge(Denmark, Sweden, {color: 'rgba(0,0,0,1.00)', weight: 0.50});
+graph.newEdge(Estonia, Sweden, {color: 'rgba(0,0,0,1.00)', weight: 0.50});
+graph.newEdge(Finland, Sweden, {color: 'rgba(0,0,0,1.00)', weight: 0.50});
+graph.newEdge(France, Sweden, {color: 'rgba(0,0,0,1.00)', weight: 0.50});
+graph.newEdge(Germany, Sweden, {color: 'rgba(0,0,0,1.00)', weight: 0.50});
+graph.newEdge(Hungary, Sweden, {color: 'rgba(0,0,0,1.00)', weight: 0.50});
+graph.newEdge(Iceland, Sweden, {color: 'rgba(0,0,0,1.00)', weight: 0.50});
+graph.newEdge(Ireland, Sweden, {color: 'rgba(0,0,0,1.00)', weight: 0.50});
+graph.newEdge(Israel, Sweden, {color: 'rgba(0,0,0,1.00)', weight: 0.50});
+graph.newEdge(Latvia, Sweden, {color: 'rgba(0,0,0,1.00)', weight: 0.50});
+graph.newEdge(Norway, Sweden, {color: 'rgba(0,0,0,1.00)', weight: 0.50});
+graph.newEdge(Russia, Sweden, {color: 'rgba(0,0,0,1.00)', weight: 0.50});
+graph.newEdge(Slovakia, Sweden, {color: 'rgba(0,0,0,1.00)', weight: 0.50});
+graph.newEdge(Spain, Sweden, {color: 'rgba(0,0,0,1.00)', weight: 0.50});
+graph.newEdge(TheNetherlands, Sweden, {color: 'rgba(0,0,0,1.00)', weight: 0.50});
+graph.newEdge(UnitedKingdom, Sweden, {color: 'rgba(0,0,0,1.00)', weight: 0.50});
+graph.newEdge(Belarus, Russia, {color: 'rgba(0,0,0,1.00)', weight: 0.50});
+graph.newEdge(Bulgaria, Serbia, {color: 'rgba(0,0,0,1.00)', weight: 0.50});
+graph.newEdge(Croatia, Serbia, {color: 'rgba(0,0,0,1.00)', weight: 0.50});
+graph.newEdge(Montenegro, Serbia, {color: 'rgba(0,0,0,1.00)', weight: 0.50});
+graph.newEdge(Slovenia, Serbia, {color: 'rgba(0,0,0,1.00)', weight: 0.50});
+graph.newEdge(Lithuania, Azerbaijan, {color: 'rgba(0,0,0,1.00)', weight: 0.50});
+graph.newEdge(Malta, Azerbaijan, {color: 'rgba(0,0,0,1.00)', weight: 0.50});
+graph.newEdge(Turkey, Azerbaijan, {color: 'rgba(0,0,0,1.00)', weight: 0.50});
+graph.newEdge(Ukraine, Azerbaijan, {color: 'rgba(0,0,0,1.00)', weight: 0.50});
+graph.newEdge(FYRMacedonia, Albania, {color: 'rgba(0,0,0,1.00)', weight: 0.50});
+graph.newEdge(Italy, Albania, {color: 'rgba(0,0,0,1.00)', weight: 0.50});
+graph.newEdge(SanMarino, Albania, {color: 'rgba(0,0,0,1.00)', weight: 0.50});
+graph.newEdge(Switzerland, Albania, {color: 'rgba(0,0,0,1.00)', weight: 0.50});
+graph.newEdge(Azerbaijan, Turkey, {color: 'rgba(0,0,0,1.00)', weight: 0.50});
+graph.newEdge(Portugal, Spain, {color: 'rgba(0,0,0,1.00)', weight: 0.50});
+graph.newEdge(Romania, Moldova, {color: 'rgba(0,0,0,1.00)', weight: 0.50});
+graph.newEdge(Moldova, Romania, {color: 'rgba(0,0,0,1.00)', weight: 0.50});
+graph.newEdge(BosniaHerzegovina, FYRMacedonia, {color: 'rgba(0,0,0,1.00)', weight: 0.50});
+graph.newEdge(Serbia, FYRMacedonia, {color: 'rgba(0,0,0,1.00)', weight: 0.50});
+graph.newEdge(Georgia, Lithuania, {color: 'rgba(0,0,0,1.00)', weight: 0.50});
+graph.newEdge(Greece, Cyprus, {color: 'rgba(0,0,0,1.00)', weight: 0.50});
+graph.newEdge(Sweden, Cyprus, {color: 'rgba(0,0,0,1.00)', weight: 0.50});
+graph.newEdge(Albania, Greece, {color: 'rgba(0,0,0,1.00)', weight: 0.50});
+graph.newEdge(Cyprus, Greece, {color: 'rgba(0,0,0,1.00)', weight: 0.50});
+    jQuery(function(){
+      var springy = jQuery('#eurovision').springy({ graph: graph, stiffness: 200, repulsion: 600 });
+    });
+    </script>
+
+    <canvas id="eurovision" width="1200" height="600" />
+    </body>
+    </html>
