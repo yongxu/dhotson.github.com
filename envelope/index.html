@@ -1,0 +1,159 @@
+<html>
+  <head>
+  </head>
+  <body>
+    <style>
+      body {
+        overflow: hidden;
+        background: url(white_wall_hash.png);
+      }
+      .success {
+        position: absolute;
+        top: 278px;
+        width: 622px;
+        margin: 0 auto;
+        font-family: Georgia;
+        font-size: 32px;
+        text-align: center;
+        color: #00AA00;
+        text-shadow: 0 1px 0 rgba(255,255,255,0.75);
+      }
+      .group {
+        position: relative;
+        width: 622px;
+        height: 100%;
+        top: 0px;
+        margin: 0 auto;
+
+      }
+      .inner {
+        position: absolute;
+        top: 0;
+        width: 622px;
+        height: 305px;
+        -webkit-animation: flyaway 1s ease 3.6s;
+        -webkit-animation-fill-mode: forwards;
+      }
+      .envelope {
+        position: relative;
+        top: 800px;
+        width: 622px;
+        height: 517px;
+
+        -webkit-animation: slideup 2s ease 1s 1;
+        -webkit-animation-fill-mode:forwards;
+      }
+      .back {
+        z-index: 250;
+        position: absolute;
+        background: url(back.png);
+        width: 622px;
+        height: 305px;
+        bottom: 0px;
+        z-index: 100;
+      }
+      .front {
+        position: absolute;
+        background: url(front.png);
+        width: 622px;
+        height: 303px;
+        bottom: 0px;
+        z-index: 200;
+      }
+      .top {
+        position: absolute;
+        background: url(top.png);
+        width: 622px;
+        height: 216px;
+        bottom: 300px;
+        -webkit-transform: rotateX(0deg);
+        -webkit-transform-origin: 50% 100% 0;
+        -webkit-perspective: 500px;
+        z-index: 250;
+
+        -webkit-animation: topfold 3s linear 0.6s 1;
+        -webkit-animation-fill-mode:forwards;
+      }
+      .note {
+        position: absolute;
+        width: 540px;
+        height: 215px;
+        top: 218px;
+        left: 11px;
+        margin: 0 auto;
+        background: -webkit-linear-gradient(#FFF, #EEE);
+        border: 1px solid #EEE;
+        border-radius: 3px;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        z-index: 150;
+
+        padding: 30px;
+        font-family: Georgia;
+        font-size: 32px;
+        text-align: center;
+      }
+
+      @-webkit-keyframes slideup {
+        from {
+          top: 800px;
+        }
+        to {
+          top: 0px;
+          -webkit-animation-play-state: paused;
+        }
+      }
+
+      @-webkit-keyframes topfold {
+        0% {
+          z-index: 125;
+          -webkit-transform: rotateX(0deg);
+          -webkit-filter: brightness(0);
+        }
+        75% {
+          z-index: 125;
+          -webkit-transform: rotateX(0deg);
+          -webkit-filter: brightness(0);
+        }
+        87% {
+          z-index: 250;
+          -webkit-filter: brightness(-0.1);
+        }
+        88% {
+          -webkit-filter: brightness(0.1);
+        }
+        100% {
+          z-index: 250;
+          -webkit-transform: rotateX(180deg);
+          -webkit-animation-play-state: paused;
+          -webkit-filter: brightness(0);
+        }
+      }
+
+      @-webkit-keyframes flyaway {
+        0% {
+          -webkit-transform: translateX(0) rotate(0deg);
+        }
+        70% {
+          -webkit-transform: translateX(0) rotate(-5deg);
+        }
+        100% {
+          -webkit-transform: translateX(-1000px) rotate(-5deg);
+        }
+      }
+
+    </style>
+    <div class="group" style="position: relative">
+      <div class="success">Submitted!</div>
+      <div class="inner">
+        <div class="note">
+          This is my note!
+        </div>
+        <div class="envelope">
+          <div class="back"></div>
+          <div class="top"></div>
+          <div class="front"></div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
