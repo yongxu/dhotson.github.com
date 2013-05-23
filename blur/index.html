@@ -1,0 +1,91 @@
+<html>
+<head>
+  <title>Motion blur! By Dennis Hotson</title>
+  <!-- palette credit http://www.colourlovers.com/palette/2865203/googlyish -->
+</head>
+<body>
+<style>
+body {
+  margin: 0;
+  padding: 0;
+  background: #222;
+}
+</style>
+
+<canvas id="canvas" width="800" height="400" />
+
+<script>
+var canvas = document.getElementById('canvas');
+var ctx = canvas.getContext('2d');
+
+var colors = [
+  '#3DE4B5',
+  '#43B6E8',
+  '#FFE65B',
+  '#FF5F48',
+  '#FFFFFF'];
+var n;
+var start = window.performance.now();
+var frameBudget = 20.0; // 16ms per frame
+
+var width, height;
+(window.onresize = function() {
+  width = canvas.width = window.innerWidth;
+  height = canvas.height = window.innerHeight;
+})();
+
+var requestAnimationFrame = window.requestAnimationFrame
+  || window.webkitRequestAnimationFrame
+  || window.mozRequestAnimationFrame;
+
+var subFrames = 50; // 60 iterations per frame
+requestAnimationFrame(function draw() {
+  var dt = 16; // Assume a frame is 16ms (eg ~60fps)
+  var sdt = dt / subFrames; // Sub frame time increment
+  start = window.performance.now();
+
+  ctx.clearRect(0, 0, width, height);
+  ctx.fillRect(0, 0, width, height);
+  for (i=0; i<5; i++) {
+    var ft = 0; // Frame relative time
+    while ((ft += sdt) < frameBudget) {
+      var t = start + ft;
+
+      // Position of square
+      var x =
+        0.5 * width *
+        Math.cos(2*i - t/2000) *
+        Math.sin((t-i)/120 - i)
+        + width/2;
+      var y =
+        0.5 * height *
+        Math.sin(5*i - t/3030) *
+        Math.sin((t/(i/4+1))/153 - i)
+        + height/2;
+      var r = 30 * Math.sin(t / 5000) * Math.sin(t/1000 + i);
+
+      // Simulate a shutter opening and closing gradually
+      var v = ft / 8.0 - 1;
+      ctx.globalAlpha = 0.2 * (ft < 8
+        ? (1 - (-ft + 8)/8)
+        : (1 - (ft - 8)/8)); // 0.1 * (ft / frameTime);
+
+      // Draw a rotated / scaled rect
+      var scale = Math.sin((i * t)/2000) * 0.5 + 1;
+      ctx.save();
+      ctx.fillStyle = colors[i];
+      ctx.translate(x, y);
+      ctx.rotate(r);
+      // ctx.scale(scale, scale);
+      ctx.fillRect(-50, -50, 100, 100);
+      ctx.restore();
+    }
+  }
+  // return;
+
+  requestAnimationFrame(draw);
+});
+</script>
+
+
+
