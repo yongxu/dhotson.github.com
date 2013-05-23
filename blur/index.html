@@ -1,9 +1,8 @@
+<!doctype html>
 <html>
 <head>
   <title>Motion blur! By Dennis Hotson</title>
   <!-- palette credit http://www.colourlovers.com/palette/2865203/googlyish -->
-</head>
-<body>
 <style>
 body {
   margin: 0;
@@ -11,6 +10,8 @@ body {
   background: #222;
 }
 </style>
+</head>
+<body>
 
 <canvas id="canvas" width="800" height="400" />
 
@@ -25,8 +26,7 @@ var colors = [
   '#FF5F48',
   '#FFFFFF'];
 var n;
-var start = window.performance.now();
-var frameBudget = 20.0; // 16ms per frame
+var start = 0;
 
 var width, height;
 (window.onresize = function() {
@@ -38,17 +38,17 @@ var requestAnimationFrame = window.requestAnimationFrame
   || window.webkitRequestAnimationFrame
   || window.mozRequestAnimationFrame;
 
-var subFrames = 50; // 60 iterations per frame
+var subFrames = 50; // 50 iterations per frame
 requestAnimationFrame(function draw() {
   var dt = 16; // Assume a frame is 16ms (eg ~60fps)
   var sdt = dt / subFrames; // Sub frame time increment
-  start = window.performance.now();
+  start += dt;
 
   ctx.clearRect(0, 0, width, height);
   ctx.fillRect(0, 0, width, height);
   for (i=0; i<5; i++) {
     var ft = 0; // Frame relative time
-    while ((ft += sdt) < frameBudget) {
+    while ((ft += sdt) < dt) {
       var t = start + ft;
 
       // Position of square
@@ -65,10 +65,10 @@ requestAnimationFrame(function draw() {
       var r = 30 * Math.sin(t / 5000) * Math.sin(t/1000 + i);
 
       // Simulate a shutter opening and closing gradually
-      var v = ft / 8.0 - 1;
-      ctx.globalAlpha = 0.2 * (ft < 8
-        ? (1 - (-ft + 8)/8)
-        : (1 - (ft - 8)/8)); // 0.1 * (ft / frameTime);
+      var h = dt/2;
+      ctx.globalAlpha = 0.2 * (ft < h
+        ? (1 - (-ft + h)/h)
+        : (1 - (ft - h)/h));
 
       // Draw a rotated / scaled rect
       var scale = Math.sin((i * t)/2000) * 0.5 + 1;
