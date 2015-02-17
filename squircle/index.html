@@ -2,7 +2,7 @@
 <head><title>Squircle</title></head>
 <body>
 <form>
-  <input id="size" type="range" min="-3" value="2" max="7" step="0.00001" /><i>n=<span id="n"></span></i>
+  <input id="size" type="range" min="-3" value="2.321928094887362" max="7" step="0.00001" /><i>n=<span id="n"></span></i>
 </form>
 <canvas id="canvas" width="500" height="500" style="width: 500px; height: 500px"/>
 
@@ -15,7 +15,7 @@ var h = (canvas.height *= window.devicePixelRatio);
 
 var a = w/2 - 2;
 var b = h/2 - 2;
-var n = 4;
+var n = 5;
 
 var sizer = document.getElementById('size');
 sizer.oninput = function() {
@@ -30,8 +30,8 @@ function draw() {
   document.getElementById('n').innerText = n.toFixed(2);
   ctx.clearRect(0, 0, w, h);
   ctx.beginPath();
-  for (var i=0; i<=100; i++) {
-    var t = 2*Math.PI * (i/100)
+  for (var i=0; i<=150; i++) {
+    var t = 2*Math.PI * (i/150)
     var x = Math.pow(Math.abs(Math.cos(t)), 2/n) * a * Math.sign(Math.cos(t))
     var y = Math.pow(Math.abs(Math.sin(t)), 2/n) * b * Math.sign(Math.sin(t))
 
