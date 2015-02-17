@@ -10,6 +10,8 @@
 var canvas = document.getElementById('canvas');
 var ctx = canvas.getContext('2d');
 
+window.devicePixelRatio = window.devicePixelRatio || 1;
+
 var w = (canvas.width *= window.devicePixelRatio);
 var h = (canvas.height *= window.devicePixelRatio);
 
@@ -27,7 +29,7 @@ ctx.fillStyle='#aaa';
 ctx.lineWidth = window.devicePixelRatio;
 
 function draw() {
-  document.getElementById('n').innerText = n.toFixed(2);
+  document.getElementById('n').textContent = n.toFixed(2);
   ctx.clearRect(0, 0, w, h);
   ctx.beginPath();
   for (var i=0; i<=150; i++) {
