@@ -1,11 +1,14 @@
 <html>
 <head><title>Squircle</title></head>
-<body>
+<body style="font-family: Helvetica Neue, Helvetica, Arial">
 <form>
-  <input id="size" type="range" min="-3" value="2.321928094887362" max="7" step="0.00001" /><i>n=<span id="n"></span></i>
+  <input id="size" type="range" min="-7" value="1.7320508075688772" --old="2.321928094887362" max="7" step="0.0000001" /><i>n=<span id="n"></span></i>
 </form>
-<canvas id="canvas" width="500" height="500" style="width: 500px; height: 500px"/>
-
+<div style="position: relative">
+  <canvas id="canvas" width="500" height="500" style="width: 500px; height: 500px; vertical-align: top"></canvas>
+  <div style="position: absolute; left: 0; top: 0; text-align: center; line-height: 500px; width: 500px; height: 500px;">Squircle</div>
+  <div style="display: inline-block; border: 1px solid black; border-radius: 120px; margin-left: 50px; text-align: center; line-height: 500px; width: 500px; height: 500px;">Border radius</div>
+</div>
 <script>
 var canvas = document.getElementById('canvas');
 var ctx = canvas.getContext('2d');
@@ -21,7 +24,7 @@ var n = 5;
 
 var sizer = document.getElementById('size');
 sizer.oninput = function() {
-  n = Math.pow(2, sizer.value)
+  n = 2 + Math.pow(2, sizer.value)
   draw();
 }
 
