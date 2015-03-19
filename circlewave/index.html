@@ -1,0 +1,84 @@
+<!doctype html>
+<html>
+<head>
+  <title>Motion blur! By Dennis Hotson</title>
+  <!-- palette credit http://www.colourlovers.com/palette/2865203/googlyish -->
+<style>
+canvas {
+  margin: 0;
+  padding: 0;
+}
+body, html {
+  margin: 0;
+  padding: 0;
+  background: #222;
+  overflow: hidden;
+}
+</style>
+</head>
+<body>
+
+<canvas id="canvas" width="800" height="400" />
+
+<script>
+var canvas = document.getElementById('canvas');
+var ctx = canvas.getContext('2d');
+
+var start = 0;
+
+var width, height;
+(window.onresize = function() {
+  width = canvas.width = window.innerWidth;
+  height = canvas.height = window.innerHeight;
+})();
+
+var requestAnimationFrame = window.requestAnimationFrame
+  || window.webkitRequestAnimationFrame
+  || window.mozRequestAnimationFrame;
+
+var subFrames = 10; // 10 iterations per frame
+requestAnimationFrame(function draw() {
+  var size = Math.min(width, height) * 0.2;
+
+  var dt = 16; // Assume a frame is 16ms (eg ~60fps)
+  var sdt = dt / subFrames; // Sub frame time increment
+  start += dt;
+
+  ctx.clearRect(0, 0, width, height);
+  // ctx.fillRect(0, 0, width, height);
+  var ft = 0;
+  while ((ft += sdt) < dt) {
+    var t = start + ft;
+    var lt = t / 20;
+    var cx = width / 2.0;
+    var cy = height / 2.0;
+
+    ctx.lineWidth = 5;
+    ctx.globalAlpha = 0.08;
+
+    [[0, '#ff0000'], [Math.PI, '#00ff00']].forEach(function(o) {
+      ctx.strokeStyle = '#ffffff'; // o[1];
+      ctx.beginPath();
+      for (var theta=0; theta<=2*Math.PI; theta += Math.PI/128) {
+        var k = Math.pow((Math.sin(theta + 0.05 * lt) + 1)/2.0, 2.0)
+        var r = 2 + 0.3 * k * Math.sin(theta * 8 - 0.1*lt + o[0]);
+        var x = size*r*Math.sin(theta) + cx;
+        var y = size*r*Math.cos(theta) + cy;
+        if (theta == 0) {
+          ctx.moveTo(x,y);
+        }
+        ctx.lineTo(x,y);
+      }
+      ctx.stroke();
+    })
+
+
+  }
+  // return;
+
+  requestAnimationFrame(draw);
+});
+</script>
+
+
+
