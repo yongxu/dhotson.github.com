@@ -13,9 +13,9 @@ var ProjectView = Backbone.View.extend({
 		this.el.append(this.scrollPane);
 
 		var zoom = $('<input class="zoom" type="range" min="10" max="100" step="0.01" value="'+ProjectView.unitWidth()+'" />');
-		zoom.change(function() {
+		zoom[0].oninput = function() {
 			ProjectView.unitWidth( $(this).val());
-		});
+		};
 		this.el.append(zoom);
 
 		this.el.bind('click', _.bind(function() {
