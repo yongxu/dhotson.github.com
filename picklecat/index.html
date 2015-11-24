@@ -101,8 +101,10 @@ PIXI.loader.add('displacement', 'clouds.jpg').load(function (loader, resources) 
   container.addChild(d1);
 });
 
-var bloom = new PIXI.filters.BloomFilter(2);
-stage.filters = [bloom];
+var brightness = new PIXI.filters.ColorMatrixFilter();
+brightness.brightness(0.85, 1);
+var bloom = new PIXI.filters.BloomFilter();
+stage.filters = [brightness, bloom];
 
 function animate() {
   requestAnimationFrame(animate);
