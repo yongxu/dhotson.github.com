@@ -113,11 +113,11 @@ PIXI.loader.add('displacement', 'clouds.jpg').load(function (loader, resources) 
   f2.blue.x = 2;
   f2.blue.y = -2;
 
-  f3 = new PIXI.filters.TiltShiftFilter();
-  f3.gradientBlur = 800;
-  f3.blur = 20;
+  // f3 = new PIXI.filters.TiltShiftFilter();
+  // f3.gradientBlur = 800;
+  // f3.blur = 20;
 
-  container.filters = [f2, f1, f3];
+  container.filters = [f2, f1];
   container.addChild(d1);
 });
 
