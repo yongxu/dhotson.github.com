@@ -83,7 +83,7 @@ PIXI.loader.add('cat', 'mesmercat.png').load(function (loader, resources) {
 
 
 var mousex = w/2, mousey = h/2;
-PIXI.loader.add('catdisplacement', 'mesmercatdisplacement.png').load(function (loader, resources) {
+PIXI.loader.add('catdisplacement', 'mesmercatdisplacement.jpg').load(function (loader, resources) {
   catd = new PIXI.Sprite(resources.catdisplacement.texture);
   catf = new PIXI.filters.DisplacementFilter(catd, 0);
   cat.filters = [catf];
@@ -145,8 +145,8 @@ function animate() {
     pickles[i].rotation = Math.sign(i-1.5) * d / (2500 + 300 * i);
   }
 
-  catf.scale.x = (w/2 - mousex) / 80 + 5 * Math.sin(d/1000);
-  catf.scale.y = (h/2 - mousey) / 80 + 5 * Math.cos(d/1000);
+  catf.scale.x = (w/2 - mousex) / 80 + 6 * Math.sin(d/1000);
+  catf.scale.y = (h/2 - mousey) / 80 + 6 * Math.cos(d/1200);
 
   renderer.render(stage);
 }
